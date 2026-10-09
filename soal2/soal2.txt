@@ -1,0 +1,40 @@
+PROGRAM Cetak_Pola_Square
+
+INPUT N
+
+IF N <= 2 THEN
+    CETAK "square = Nilai terlalu kecil"
+ELSE IF N >= 10 THEN
+    CETAK "square = Nilai terlalu besar"
+ELSE
+    CETAK "square ="
+    DEKLARASI finalRow = ""
+
+    FOR row = 1 TO N DO
+        DEKLARASI currentRow = ""
+        
+        // Cek posisi baris untuk menentukan karakter
+        IF row == 1 OR row == N THEN
+            // Tepi atas dan bawah isi dengan '='
+            FOR col = 1 TO N DO
+                currentRow = currentRow + "="
+            END FOR
+        ELSE
+            // Bagian tengah diapit '|' dan diisi spasi
+            currentRow = currentRow + "|"
+            FOR col = 1 TO N - 2 DO
+                currentRow = currentRow + " "
+            END FOR
+            currentRow = currentRow + "|"
+        END IF
+        
+        // Cetak baris tersebut ke layar
+        CETAK currentRow
+        
+        // Tambahkan ke penampung baris final
+        finalRow = finalRow + currentRow
+    END FOR
+    
+    // Cetak hasil gabungan semua baris di akhir
+    CETAK finalRow
+END IF
