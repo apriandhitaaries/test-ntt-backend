@@ -49,7 +49,7 @@ app.post("/cekAlamat", async (request, response) => {
   } catch (error) {
     console.error("Gagal nge-hit API:", error.message);
     return response.status(500).json({
-      code: 0,
+      code: "0",
       message: "Tidak Sesuai",
     });
   }
