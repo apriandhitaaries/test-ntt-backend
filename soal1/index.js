@@ -12,6 +12,13 @@ const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 app.post("/cekAlamat", async (request, response) => {
   try {
     const { provinsi, kabkota } = request.body;
+
+    // Validasi input
+    if (!provinsi || !kabkota) {
+      console.log("Parameter provinsi atau kabkota kosong/tidak dikirim.");
+      return response.status(400).json({ code: "0", message: "Parameter provinsi dan kabkota wajib diisi" });
+    }
+
     console.log(`\n--- Request Baru Masuk ---`);
     console.log(`Mencari: Provinsi ${provinsi}, ${kabkota}`);
 
